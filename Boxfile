@@ -1,0 +1,10 @@
+web1: #component type & number
+  name: Generative            #component settings
+  shared_writable_dirs:
+    - var/cache
+  document_root: public
+  php_version: 5.3.23
+  php_extensions:
+    - mysql
+    - gd
+    - eaccelerator
