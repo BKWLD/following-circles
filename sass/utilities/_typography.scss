@@ -1,0 +1,19 @@
+// Make headers default to no weight
+h1,h2,h3,h4,h5 {
+	font-weight: 200; // This tends to be the default in the design
+	-webkit-font-smoothing: antialiased; // Smooth em out
+}
+
+// --------------------------------------------------
+// Webfont mixin
+
+@mixin webfont($type: 'regular', $size: '', $color: '') {
+	$weight: normal;
+	@if $type == 'light' {
+		$weight: 200;
+	}
+	font-family: "Neo Sans W01 Light", Tahoma, Helvetica, Verdana, Sans-Serif;
+	font-weight: $weight;
+	@if $size != '' { font-size: $size; } 
+	@if $color != '' { color: $color; }
+}
