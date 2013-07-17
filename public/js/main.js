@@ -17,12 +17,26 @@ define('main', function (require) {
 	var $ = require('jquery'),
 		_ = require('underscore'),
 		app = require('modules/app'),
-		Circle = require('modules/view/Circle.js');
+		Circle = require('views/Circle');
 
-		//create a circle view (test)
-		var circle = new Circle({el: })
+	var cap = 20,
+		count = 0;
 
+	// Main window click event (HammerJS)
+	$(window).on('click', function(e) {
+		e.preventDefault();
+
+		// make it so you can only create 20 circles
+		if(count < cap) {
+			var circle = new Circle(e);
+			$('.wrap').append(circle.$el);
+			count++;
+		}
+		
+	});
 });
+
+
 
 // Start the application
 require(['main']);

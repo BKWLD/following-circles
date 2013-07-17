@@ -1,0 +1,12 @@
+.circle {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	background-color: #00cc00;
+	cursor: pointer;
+	@include border-radius(50px);
+	@include opacity(.5);
+	@include transition(all 200ms ease-out);
+
+	&:hover { @include opacity(.8); @include scale(1.1); }
+}
