@@ -11,7 +11,8 @@ define(function(require) {
 	
 	// Init view
 	var View = {
- 		params: null
+		params: null,
+		colors: ['#ffffff', '#333333', '#9d1b3c', '#c8c826', '#1ce2db', '#a641ce', '#25d439']
 	};
 	
 	// Constructor
@@ -24,18 +25,40 @@ define(function(require) {
 		// establish the element of the view as a copy of the "Circle" underscore template
 		this.setElement(template());
 
-		// Selectors
-		this.$wrap = $('.wrap');
+		//randomize the circle's properties
+		_.defer(this.setProperties);
 
-		this.setPosition();
-	
+		// set it's initial position
+		_.defer(this.setPosition);
+
+		// click listener for the circle
+		this.$el.on('click', this.onClick);
+	};
+
+	View.onClick = function(e) {
+		e.preventDefault();
+
+		// change color
+	};
+
+	// Set the circle's diameter, and color
+	View.setProperties = function() {
+
+		// random size (between 10 and 100 pixels)
+		var size = (Math.round(Math.random() * 150) + 10);
+		this.$el.css({'width': size + 'px', 'height': size + 'px', 'border-radius': size/2 + 'px'});
+
+
+		// random color from the colors array
+		var randColor = Math.floor(Math.random()*this.colors.length);
+		this.$el.css('background-color', this.colors[randColor]);
 	};
 
 	View.setPosition = function() {
 
 		// figure out the coordinates to place the circle
-		var top = parseInt(this.params.pageY - 50),
-			left = parseInt(this.params.pageX - 50);
+		var top = this.params.pageY - 50,
+			left = this.params.pageX - 50;
 
 		// position the new circle
 		this.$el.css({'top': top, 'left': left});

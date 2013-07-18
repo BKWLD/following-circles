@@ -27,12 +27,12 @@ define('main', function (require) {
 		e.preventDefault();
 
 		// make it so you can only create 20 circles
-		if(count < cap) {
+		// also, check and make sure you're not clicking on an existing circle
+		if(count < cap && !$(e.target).hasClass('circle')) {
 			var circle = new Circle(e);
 			$('.wrap').append(circle.$el);
 			count++;
 		}
-		
 	});
 });
 
