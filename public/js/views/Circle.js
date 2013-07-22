@@ -17,7 +17,9 @@ define(function(require) {
 		bgColor: null,
 		size: null,
 		position: null,
-		interval: null
+		interval: null,
+		x: null,
+		y: null
 	};
 	
 	// Constructor
@@ -36,24 +38,19 @@ define(function(require) {
 			this.size = params.size;
 		}
 
-		// Elements
-		this.$circle = this.$el.find('.circle');
+		this.x = this.params.x;
+		this.y = this.params.y;
 
-		// click listener for the circle
-		this.$circle.on('click', this.onClick);
+		// main listeners for the circle
+		this.$el.on('mouseenter', this.loopColors);
+		this.$el.on('mouseleave', this.onMouseLeave);
+		this.$el.on('click', this.onClick);
 
-		// set the rollover if it's NOT the parent, 
-		// else set the roll out, then on roll out set the roll over
-		this.$circle.on('mouseenter', this.loopColors);
-		this.$circle.on('mouseleave', this.onMouseLeave);
-		
 		// listen for the color change trigger
 		if(this.parent) this.parent.on('updateColor', this.onUpdateColor);
 
-		// set the circle's properties
+		// set the circle's properties, then reveal
 		_.defer(this.setProperties);
-
-		// Initial circle reveal
 		_.defer(this.reveal);
 
 	};
@@ -61,8 +58,8 @@ define(function(require) {
 	// Circle Click Handler
 	Circle.onClick = function(e) {
 		e.preventDefault();
-		var follower = new Circle({parent: this, color: this.bgColor, size: this.size});
-		this.$el.append(follower.$el);
+		var follower = new Circle({parent: this, color: this.bgColor, size: this.size, x: this.x, y: this.y});
+		$('.wrap').append(follower.$el);
 	};
 
 	// Set the circle's diameter, and color (PARENT)
@@ -73,7 +70,7 @@ define(function(require) {
 		if(!this.parent) {
 			size = this.size;
 		} else {
-			size = this.parent.$circle.width()/2;
+			size = this.parent.$el.width()/2;
 		}
 
 		// COLOR: If no parent, then make the color random
@@ -91,18 +88,14 @@ define(function(require) {
 			top = this.params.y - this.params.size/2;
 			left = this.params.x - this.params.size/2;
 		} else {
-			top = ((Math.random()*(size*4))) - (size*2);
-			left = ((Math.random()*(size*4))) - (size*2);
+			top = this.parent.y + ((Math.random()*(size*4) - (size*2)));
+			left = this.parent.x + ((Math.random()*(size*4) - (size*2)));
 		}
-		
-		// set the styles of the wrapper
-		this.$el.css({
-			'top': top,
-			'left': left
-		});
 
 		// set the styles of the circle
-		this.$circle.css({
+		this.$el.css({
+			'top': top,
+			'left': left,
 			'background-color': this.bgColor,
 			'width': size,
 			'height': size
@@ -122,7 +115,7 @@ define(function(require) {
 
 	Circle.changeColor = function(e) {
 		this.bgColor = this.colors[Math.floor(Math.random()*this.colors.length)];
-		this.$circle.css({'background-color': this.bgColor });
+		this.$el.css({'background-color': this.bgColor });
 		this.trigger('updateColor', {color: this.bgColor});
 
 	};
@@ -130,7 +123,7 @@ define(function(require) {
 	Circle.onUpdateColor = function(e) {
 		if(this.parent) {
 			this.bgColor = e.color;
-			this.$circle.css({'background-color': this.bgColor });	
+			this.$el.css({'background-color': this.bgColor });	
 			this.trigger('updateColor', {color: this.bgColor});
 		}
 	};

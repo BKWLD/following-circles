@@ -1,9 +1,5 @@
-//wraps (this takes care of the the X&Y positioning)
-.circle-wrap {
-	position: absolute;
-}
-
 .circle {
+	position: absolute;
 	cursor: pointer;
 	@include border-radius(100px);
 	@include transition(all 300ms ease-out);
@@ -14,7 +10,7 @@
 	@include scale(.3);
 
 	// stuff to show the circle
-	.on & {
+	&.on {
 		@include opacity(1);
 		@include scale(1);
 	}

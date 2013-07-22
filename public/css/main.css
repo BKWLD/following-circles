@@ -100,13 +100,9 @@ body {
   width: 100px;
 }
 
-/* line 2, ../../sass/partials/_circle.scss */
-.circle-wrap {
-  position: absolute;
-}
-
-/* line 6, ../../sass/partials/_circle.scss */
+/* line 1, ../../sass/partials/_circle.scss */
 .circle {
+  position: absolute;
   cursor: pointer;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
@@ -126,8 +122,8 @@ body {
   -o-transform: scale(0.3, 0.3);
   transform: scale(0.3, 0.3);
 }
-/* line 17, ../../sass/partials/_circle.scss */
-.on .circle {
+/* line 13, ../../sass/partials/_circle.scss */
+.circle.on {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
   -webkit-transform: scale(1, 1);
