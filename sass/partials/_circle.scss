@@ -1,12 +1,21 @@
-.circle {
+//wraps (this takes care of the the X&Y positioning)
+.circle-wrap {
 	position: absolute;
-	width: 100px;
-	height: 100px;
-	background-color: #00cc00;
-	cursor: pointer;
-	@include border-radius(50px);
-	@include opacity(.5);
-	@include transition(all 200ms ease-out);
+}
 
-	&:hover { @include opacity(.8); @include scale(1.1); }
+.circle {
+	cursor: pointer;
+	@include border-radius(100px);
+	@include transition(all 300ms ease-out);
+	@include single-box-shadow;
+
+	// Initial properties
+	@include opacity(0);
+	@include scale(.3);
+
+	// stuff to show the circle
+	.on & {
+		@include opacity(1);
+		@include scale(1);
+	}
 }
