@@ -23,7 +23,7 @@ define('main', function (require) {
 		count = 0;
 
 	// Main window click event (HammerJS)
-	$(window).on('click', function(e) {
+	$('.wrap').on('click', function(e) {
 		e.preventDefault();
 
 		// make it so you can only create 20 circles

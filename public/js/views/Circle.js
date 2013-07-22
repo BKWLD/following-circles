@@ -12,7 +12,7 @@ define(function(require) {
 	
 	// Init view
 	var Circle = {
-		colors: ['#ffffff', '#666666', '#9d1b3c', '#c8c826', '#1ce2db', '#a641ce', '#25d439'],
+		colors: ['#444444', '#649ba9', '#88a964', '#a9a264', '#a96464', '#bebebe', '#a369a5'],
 		params: null,
 		parent: null,
 		bgColor: null,
@@ -113,14 +113,14 @@ define(function(require) {
 	};
 
 	Circle.onMouseLeave = function(e) {
-		if(interval) {
-			clearInterval(interval);
-			interval = null;
+		if(this.interval) {
+			clearInterval(this.interval);
+			this.interval = null;
 		}
 	};
 
 	Circle.loopColors = function(e) {
-		interval = setInterval(this.changeColor, 300);
+		this.interval = setInterval(this.changeColor, 300);
 	};
 
 	Circle.changeColor = function(e) {
