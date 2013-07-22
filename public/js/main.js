@@ -1,7 +1,7 @@
 // Set the require.js configuration for the application
 require.config({
 	
-	baseUrl: '/js/',
+	baseUrl: 'js/',
 	
 	// Set common library paths
 	paths: {
@@ -16,7 +16,6 @@ define('main', function (require) {
 	
 	var $ = require('jquery'),
 		_ = require('underscore'),
-		app = require('modules/app'),
 		Circle = require('views/Circle');
 
 	var cap = 20,

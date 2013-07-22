@@ -4,8 +4,7 @@ define(function(require) {
 	// Dependencies
 	var $ = require('jquery'),
 		_ = require('underscore'),
-		Backbone = require('backbone'),
-		app = require('modules/app');
+		Backbone = require('backbone');
 
 	// Create the template
 	var template = _.template($('#template-circle').html() || '');
@@ -18,8 +17,6 @@ define(function(require) {
 		bgColor: null,
 		size: null,
 		position: null,
-		mouseX: null,
-		mouseY: null,
 		interval: null
 	};
 	
