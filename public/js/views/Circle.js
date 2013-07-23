@@ -36,9 +36,9 @@ define(function(require) {
 		_.defer(this.reveal);
 
 		// Main listeners for the circle
+		this.$el.on('click', this.onClick);
 		this.$el.on('mouseenter', this.loopColors);
 		this.$el.on('mouseleave', this.stopLoopColors);
-		this.$el.on('click', this.onClick);
 
 		// Listen for the color change trigger
 		if (this.parent) this.parent.on('change:color', this.onChangeColor);
