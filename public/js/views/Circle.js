@@ -45,18 +45,6 @@ define(function(require) {
 
 	};
 
-	// Circle Click Handler
-	Circle.onClick = function(e) {
-		var follower = new Circle({
-			parent: this, 
-			color: this.color, 
-			size: this.size/2, 
-			x: this.x, 
-			y: this.y
-		});
-		$('.wrap').append(follower.el);
-	};
-
 	// Set the circle's diameter, and color
 	Circle.setProperties = function(options) {
 
@@ -96,6 +84,18 @@ define(function(require) {
 			'width': this.size,
 			'height': this.size
 		});
+	};
+	
+	// Circle Click Handler
+	Circle.onClick = function(e) {
+		var follower = new Circle({
+			parent: this, 
+			color: this.color, 
+			size: this.size/2, 
+			x: this.x, 
+			y: this.y
+		});
+		$('.wrap').append(follower.el);
 	};
 
 	// Loop through colors on rollvoer
