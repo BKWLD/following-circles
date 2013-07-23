@@ -41,7 +41,7 @@ define(function(require) {
 		this.$el.on('click', this.onClick);
 
 		// Listen for the color change trigger
-		if (this.parent) this.parent.on('updateColor', this.onUpdateColor);
+		if (this.parent) this.parent.on('change:color', this.onUpdateColor);
 
 	};
 
@@ -116,7 +116,7 @@ define(function(require) {
 		
 		// Delay notifying listeners to add a cool stagger affect
 		setTimeout(_.bind(function() {
-			this.trigger('updateColor', {color: color});
+			this.trigger('change:color', {color: color});
 		}, this), 100);
 		
 	};
