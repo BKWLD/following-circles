@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Sniglet:800);
 /* line 17, ../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -71,12 +72,25 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   box-sizing: border-box;
 }
 
-/* line 4, ../../sass/partials/_common.scss */
+/* line 6, ../../sass/partials/_common.scss */
 body {
   background-image: url(../img/bg.png);
 }
 
-/* line 8, ../../sass/partials/_common.scss */
+/* line 10, ../../sass/partials/_common.scss */
+.cta {
+  font-family: 'Sniglet', cursive;
+  font-size: 48px;
+  color: #ccc;
+  font-smooth: antialiased;
+  -webkit-font-smoothing: antialiased;
+  position: absolute;
+  top: 45%;
+  text-align: center;
+  width: 100%;
+}
+
+/* line 22, ../../sass/partials/_common.scss */
 .wrap {
   position: absolute;
   width: 100%;
@@ -85,7 +99,7 @@ body {
   left: 0;
 }
 
-/* line 16, ../../sass/partials/_common.scss */
+/* line 30, ../../sass/partials/_common.scss */
 .logo {
   position: absolute;
   left: -1px;
