@@ -1,12 +1,8 @@
+
+// Defaults
 @import "compass/css3";
-@import "compass/css3/images";
-@import "compass/css3/transform";
-@import "compass/css3/user-interface";
 @import "compass/reset";
 
-@import "utilities/typography";
-@import "utilities/respond-to";
-@import "utilities/variables";
-
+// Site
 @import "partials/common";
 @import "partials/circle";

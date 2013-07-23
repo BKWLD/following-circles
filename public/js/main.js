@@ -25,7 +25,7 @@ define('main', function (require) {
 
 		// check and make sure you're not clicking on an existing circle
 		if(!$(e.target).hasClass('circle')) {
-			var circle = new Circle({x: e.pageX, y: e.pageY, size: 200});
+			var circle = new Circle({x: e.pageX, y: e.pageY});
 			$('.wrap').append(circle.$el);
 		}
 	});
