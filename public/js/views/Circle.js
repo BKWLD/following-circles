@@ -72,7 +72,7 @@ define(function(require) {
 			
 			// This circle is half of it's parent and "size" is a diameter.  So the distance between
 			// parent and this circle is one and half of this circle's diameter.
-			var radius = this.size*1.5;
+			var radius = this.size*1.5,
 			
 				// This is the center of the parent
 				center = { x: params.x - this.size/2 + this.size, y: params.y - this.size/2 + this.size},
