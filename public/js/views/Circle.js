@@ -31,8 +31,9 @@ define(function(require) {
 		// Give the view some markup
 		this.setElement(template);
 
-		// Set initial dimensions		
+		// Set initial dimensions and then display
 		this.setProperties(params);
+		_.defer(this.reveal);
 
 		// Main listeners for the circle
 		this.$el.on('mouseenter', this.loopColors);
@@ -41,9 +42,6 @@ define(function(require) {
 
 		// Listen for the color change trigger
 		if (this.parent) this.parent.on('updateColor', this.onUpdateColor);
-
-		// Set the circle's properties, then reveal
-		_.defer(this.reveal);
 
 	};
 
