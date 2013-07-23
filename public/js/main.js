@@ -6,7 +6,7 @@ require.config({
 	// Set common library paths
 	paths: {
 		jquery: 'empty:',
-		underscore: 'libs/underscore',
+		underscore: 'libs/lo-dash',
 		backbone: 'libs/backbone'
 	}
 });
