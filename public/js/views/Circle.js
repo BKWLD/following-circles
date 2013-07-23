@@ -25,14 +25,14 @@ define(function(require) {
 	};
 	
 	// Constructor
-	Circle.initialize = function(params) {
+	Circle.initialize = function(options) {
 		_.bindAll(this);
 
 		// Give the view some markup
 		this.setElement(template);
 
 		// Set initial dimensions and then display
-		this.setProperties(params);
+		this.setProperties(options);
 		_.defer(this.reveal);
 
 		// Main listeners for the circle
@@ -58,22 +58,22 @@ define(function(require) {
 	};
 
 	// Set the circle's diameter, and color
-	Circle.setProperties = function(params) {
+	Circle.setProperties = function(options) {
 
 		// Set default values
-		this.parent = params.parent;
-		this.size = params.size || 200;
-		this.color = params.color || randomColor();
+		this.parent = options.parent;
+		this.size = options.size || 200;
+		this.color = options.color || randomColor();
 
 		// If there is a parent, position this circle on it's edge
-		if (params.parent) {
+		if (options.parent) {
 			
 			// This circle is half of it's parent and "size" is a diameter.  So the distance between
 			// parent and this circle is one and half of this circle's diameter.
 			var radius = this.size*1.5,
 			
 				// This is the center of the parent
-				center = { x: params.x - this.size/2 + this.size, y: params.y - this.size/2 + this.size},
+				center = { x: options.x - this.size/2 + this.size, y: options.y - this.size/2 + this.size},
 				
 				// Choose a random angle to position it
 				angle = Math.random()*Math.PI*2;
@@ -84,8 +84,8 @@ define(function(require) {
 			
 		// Otherwise, center where clicked
 		} else {
-			this.x = params.x - this.size/2;
-			this.y = params.y - this.size/2;
+			this.x = options.x - this.size/2;
+			this.y = options.y - this.size/2;
 		}
 		
 		// Set the styles of the circle
