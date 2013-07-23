@@ -14,16 +14,15 @@ require.config({
 // Define the application entry point
 define('main', function (require) {
 	
+	// Dependencies
 	var $ = require('jquery'),
 		_ = require('underscore'),
 		Circle = require('views/Circle');
 
-
-	// Main window click event (HammerJS)
+	// Main window click event
 	$('.wrap').on('click', function(e) {
-		e.preventDefault();
 
-		// check and make sure you're not clicking on an existing circle
+		// Check and make sure you're not clicking on an existing circle
 		if(!$(e.target).hasClass('circle')) {
 			var circle = new Circle({x: e.pageX, y: e.pageY});
 			$('.wrap').append(circle.$el);
