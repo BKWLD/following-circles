@@ -56,7 +56,7 @@ define(function(require) {
 			x: this.x, 
 			y: this.y
 		});
-		$('.wrap').append(follower.$el);
+		$('.wrap').append(follower.el);
 	};
 
 	// Set the circle's diameter, and color

@@ -27,7 +27,7 @@ define('main', function (require) {
 	
 		// Create a circle		
 		var circle = new Circle({x: e.pageX, y: e.pageY});
-		$('.wrap').append(circle.$el);
+		$('.wrap').append(circle.el);
 	});
 });
 
