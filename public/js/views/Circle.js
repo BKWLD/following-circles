@@ -26,9 +26,10 @@ define(function(require) {
 	Circle.initialize = function(params) {
 		_.bindAll(this);
 
-		// establish the element of the view as a copy of the "Circle" underscore template
+		// Establish the element of the view as a copy of the "Circle" underscore template
 		this.setElement(template);
 
+		// Remember the configuration params
 		this.params = params;
 
 		if(params.parent) {
@@ -41,15 +42,15 @@ define(function(require) {
 		this.x = this.params.x;
 		this.y = this.params.y;
 
-		// main listeners for the circle
+		// Main listeners for the circle
 		this.$el.on('mouseenter', this.loopColors);
 		this.$el.on('mouseleave', this.onMouseLeave);
 		this.$el.on('click', this.onClick);
 
-		// listen for the color change trigger
+		// Listen for the color change trigger
 		if(this.parent) this.parent.on('updateColor', this.onUpdateColor);
 
-		// set the circle's properties, then reveal
+		// Set the circle's properties, then reveal
 		_.defer(this.setProperties);
 		_.defer(this.reveal);
 
