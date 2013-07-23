@@ -7,7 +7,7 @@ define(function(require) {
 		Backbone = require('backbone');
 
 	// Create the template
-	var template = _.template($('#template-circle').html() || '');
+	var template = '<div class="circle"></div>';
 	
 	// Init view
 	var Circle = {
@@ -27,7 +27,7 @@ define(function(require) {
 		_.bindAll(this);
 
 		// establish the element of the view as a copy of the "Circle" underscore template
-		this.setElement(template());
+		this.setElement(template);
 
 		this.params = params;
 
