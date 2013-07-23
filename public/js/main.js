@@ -23,10 +23,11 @@ define('main', function (require) {
 	$('.wrap').on('click', function(e) {
 
 		// Check and make sure you're not clicking on an existing circle
-		if(!$(e.target).hasClass('circle')) {
-			var circle = new Circle({x: e.pageX, y: e.pageY});
-			$('.wrap').append(circle.$el);
-		}
+		if($(e.target).hasClass('circle')) return;
+	
+		// Create a circle		
+		var circle = new Circle({x: e.pageX, y: e.pageY});
+		$('.wrap').append(circle.$el);
 	});
 });
 
