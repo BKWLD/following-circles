@@ -41,7 +41,7 @@ define(function(require) {
 		this.$el.on('click', this.onClick);
 
 		// Listen for the color change trigger
-		if (this.parent) this.parent.on('change:color', this.onUpdateColor);
+		if (this.parent) this.parent.on('change:color', this.onChangeColor);
 
 	};
 
@@ -129,7 +129,7 @@ define(function(require) {
 	};
 	
 	// Listen for another circle's color to change
-	Circle.onUpdateColor = function(e) {
+	Circle.onChangeColor = function(e) {
 		this.applyColor(e.color);
 	};
 
